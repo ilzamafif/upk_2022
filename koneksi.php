@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $host = "localhost";
 $username = "root";
@@ -10,5 +10,3 @@ if (mysqli_connect_errno()) {
     echo "Error: could not connect to database";
     exit;
 }
-
-?>

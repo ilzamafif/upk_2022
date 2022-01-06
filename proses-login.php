@@ -16,15 +16,15 @@ $numResult = $result->num_rows;
 
 // jika login berhasil
 if ($numResult > 0) {
-    $row = $result->fetch_assoc();
-    extract($row);
-    $_SESSION["username"] = $username;
-    $_SESSION["password"] = $password;
-    $_SESSION["level"] = $level;
+  $row = $result->fetch_assoc();
+  extract($row);
+  $_SESSION["username"] = $username;
+  $_SESSION["password"] = $password;
+  $_SESSION["level"] = $level;
 
-    header("location: admin.php");
+  header("location: admin.php");
 } else {
-    echo "gagal";
+  echo "gagal";
 }
 
 // menutup koneksi database 
