@@ -90,7 +90,6 @@ include 'config/db.php';
             $sqlCek = mysqli_query($con, "SELECT * FROM user WHERE username='$_POST[username]' AND password='$pass'");
             $jml = mysqli_num_rows($sqlCek);
             $d = mysqli_fetch_array($sqlCek);
-            var_dump($d);
 
             if ($jml > 0) {
               $_SESSION['admin'] = $d['id'];
