@@ -30,31 +30,24 @@
         </div>
         <div class="card-body">
           <form action="?page=barang&act=proses" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-              <label>NIP/NUPTK</label>
-              <input name="nip" type="text" class="form-control" placeholder="NIP/NUPTK">
-            </div>
 
             <div class="form-group">
               <label>Nama Barang</label>
-              <input name="nama" type="text" class="form-control" placeholder="Nama dan Gelar">
+              <input name="nama_barang" type="text" class="form-control" placeholder="Nama Barang">
             </div>
 
             <div class="form-group">
-              <label>Email</label>
-              <input name="email" type="text" class="form-control" placeholder="Email">
+              <label>KD Barang</label>
+              <input name="kd_barang" type="text" class="form-control" placeholder="KD Barang">
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <p>
                 <img src="../assets/img/user/<?= $data['foto']; ?>" class="img-fluid rounded-circle kotak" style="height: 65px; width: 65px;">
               </p>
               <label>Foto</label>
               <input type="file" name="foto">
-            </div>
-
-
-
+            </div> -->
             <div class="form-group">
               <button name="saveBarang" type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
               <a href="javascript:history.back()" class="btn btn-warning"><i class="fa fa-chevron-left"></i> Batal</a>

@@ -36,10 +36,8 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Nip</th>
+                  <th>KD Barang</th>
                   <th>Nama Barang</th>
-                  <th>Email</th>
-                  <th>Status</th>
                   <th>Foto</th>
                   <th>Opsi</th>
                 </tr>
@@ -65,8 +63,8 @@
                     <td><?= $g['nama_barang']; ?></td>
                     <td><img src="../assets/img/user/user.jpg" width="45" height="45"></td>
                     <td>
-                      <a class="btn btn-info btn-sm" href="?page=barang&act=edit&id=<?= $g['id_barang'] ?>"><i class="far fa-edit"></i></a>
-                      <a class="btn btn-danger btn-sm" onclick="return confirm('Yakin Hapus Data ??')" href="?page=barang&act=del&id=<?= $g['id_barang'] ?>"><i class="fas fa-trash"></i>
+                      <a class="btn btn-info btn-sm" href="?page=barang&act=edit&id=<?= $g['kd_barang'] ?>"><i class="far fa-edit"></i></a>
+                      <a class="btn btn-danger btn-sm" onclick="return confirm('Yakin Hapus Data ??')" href="?page=barang&act=del&kd_barang=<?= $g['kd_barang'] ?>"><i class="fas fa-trash"></i>
                       </a>
 
                     </td>
