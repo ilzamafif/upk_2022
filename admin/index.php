@@ -192,154 +192,37 @@ $data = mysqli_fetch_array($sql);
               </span>
               <h4 class="text-section">Main Utama</h4>
             </li>
-            <li class="nav-item">
-              <a data-toggle="collapse" href="#base">
+            <li class="nav-item mt-3">
+              <a href="?page=barang" class="collapsed">
                 <i class="fas fa-folder-open"></i>
-                <p>Data Umum</p>
-                <span class="caret"></span>
+                <p>Barang</p>
               </a>
-              <div class="collapse" id="base">
-                <ul class="nav nav-collapse">
-                  <li>
-                    <a href="?page=barang">
-                      <span class="sub-item">Barang</span>
-                    </a>
-                  </li>
-
-                  <!-- <li>
-                    <a href="?page=master&act=semester">
-                      <span class="sub-item">Semester</span>
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="?page=master&act=ta">
-                      <span class="sub-item">Tahun Pelajaran</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="?page=master&act=mapel">
-                      <span class="sub-item">Mata Pelajaran</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="?page=walas">
-                      <span class="sub-item"> Wali Kelas </span>
-                    </a>
-                  </li> -->
-
-                </ul>
-              </div>
             </li>
-            <!-- <li class="nav-item">
-              <a data-toggle="collapse" href="#sidebarLayouts">
-                <i class="fas fa-clipboard-list"></i>
-                <p>Jadwal Mengajar</p>
-                <span class="caret"></span>
+            <li class="nav-item mt-3">
+              <a href="logout.php" class="collapsed">
+                <i class="fas fa-file-export"></i>
+                <p>Barang Masuk</p>
               </a>
-              <div class="collapse" id="sidebarLayouts">
-                <ul class="nav nav-collapse">
-                  <li>
-                    <a href="?page=jadwal&act=add ">
-                      <span class="sub-item"> Tambah Jadwal </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="?page=jadwal">
-                      <span class="sub-item"> Daftar Mengajar </span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+            </li>
+            <li class="nav-item mt-3">
+              <a href="logout.php" class="collapsed">
+                <i class="fas fa-arrow-alt-circle-left"></i>
+                <p>Barang Keluar</p>
+              </a>
+            </li>
+            <li class="nav-item mt-3">
+              <a href="logout.php" class="collapsed">
+                <i class="fas fa-layer-group"></i>
+                <p>Stok</p>
+              </a>
+            </li>
+            <li class="nav-item mt-3">
+              <a href="?page=kelola-user" class="collapsed">
+                <i class="fas fa-users"></i>
+                <p>Kelola User</p>
+              </a>
             </li>
 
-            <li class="nav-item">
-              <a data-toggle="collapse" href="#kepsek">
-                <i class="fas fa-user-tie"></i>
-                <p>Data Kepala Sekolah</p>
-                <span class="caret"></span>
-              </a>
-              <div class="collapse" id="kepsek">
-                <ul class="nav nav-collapse">
-                  <li>
-                    <a href="?page=kepsek&act=add ">
-                      <span class="sub-item"> Tambah Kepala Sekolah </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="?page=kepsek">
-                      <span class="sub-item"> Daftar Kepala Sekolah </span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="nav-item">
-              <a data-toggle="collapse" href="#guru">
-                <i class="fas fa-user-tie"></i>
-                <p>Data Guru</p>
-                <span class="caret"></span>
-              </a>
-              <div class="collapse" id="guru">
-                <ul class="nav nav-collapse">
-                  <li>
-                    <a href="?page=guru&act=add ">
-                      <span class="sub-item"> Tambah Guru </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="?page=guru">
-                      <span class="sub-item"> Daftar Guru </span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li class="nav-item">
-              <a data-toggle="collapse" href="#siswa">
-                <i class="fas fa-user-friends"></i>
-                <p>Data Siswa</p>
-                <span class="caret"></span>
-              </a>
-              <div class="collapse" id="siswa">
-                <ul class="nav nav-collapse">
-                  <li>
-                    <a href="?page=siswa&act=add ">
-                      <span class="sub-item"> Tambah Siswa </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="?page=siswa">
-                      <span class="sub-item"> Daftar Siswa </span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-
-            <li class="nav-item">
-              <a data-toggle="collapse" href="#rekapAbsen">
-                <i class="fas fa-list-alt"></i>
-                <p>Rekap Absen</p>
-                <span class="caret"></span>
-              </a>
-              <div class="collapse" id="rekapAbsen">
-                <ul class="nav nav-collapse">
-                  <?php
-                  //$kelas = mysqli_query($con, "SELECT * FROM tb_mkelas ORDER BY id_mkelas ASC");
-                  foreach ($kelas as $k) { ?>
-                    <li>
-                      <a href="?page=rekap&kelas=<?= $k['id_mkelas'] ?> ">
-                        <span class="sub-item">KELAS <?= strtoupper($k['nama_kelas']); ?></span>
-                      </a>
-                    </li>
-                  <?php } ?>
-                </ul>
-              </div>
-            </li> -->
             <li class="nav-item active mt-3">
               <a href="logout.php" class="collapsed">
                 <i class="fas fa-arrow-alt-circle-left"></i>
@@ -421,17 +304,17 @@ $data = mysqli_fetch_array($sql);
           } elseif ($act == 'proses') {
             include 'modul/barang/proses.php';
           }
-        } elseif ($page == 'siswa') {
+        } elseif ($page == 'kelola-user') {
           if ($act == '') {
-            include 'modul/siswa/data.php';
+            include 'modul/kelola-user/data.php';
           } elseif ($act == 'add') {
-            include 'modul/siswa/add.php';
+            include 'modul/kelola-user/add.php';
           } elseif ($act == 'edit') {
-            include 'modul/siswa/edit.php';
+            include 'modul/kelola-user/edit.php';
           } elseif ($act == 'del') {
-            include 'modul/siswa/del.php';
+            include 'modul/kelola-user/del.php';
           } elseif ($act == 'proses') {
-            include 'modul/siswa/proses.php';
+            include 'modul/kelola-user/proses.php';
           }
         } elseif ($page == 'rekap') {
           if ($act == '') {
