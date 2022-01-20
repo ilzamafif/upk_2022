@@ -199,19 +199,19 @@ $data = mysqli_fetch_array($sql);
               </a>
             </li>
             <li class="nav-item mt-3">
-              <a href="logout.php" class="collapsed">
+              <a href="?page=masuk-barang" class="collapsed">
                 <i class="fas fa-file-export"></i>
                 <p>Barang Masuk</p>
               </a>
             </li>
             <li class="nav-item mt-3">
-              <a href="logout.php" class="collapsed">
+              <a href="?page=keluar-barang" class="collapsed">
                 <i class="fas fa-arrow-alt-circle-left"></i>
                 <p>Barang Keluar</p>
               </a>
             </li>
             <li class="nav-item mt-3">
-              <a href="logout.php" class="collapsed">
+              <a href="?page=stok" class="collapsed">
                 <i class="fas fa-layer-group"></i>
                 <p>Stok</p>
               </a>
@@ -249,48 +249,17 @@ $data = mysqli_fetch_array($sql);
         $page = @$_GET['page'];
         $act = @$_GET['act'];
 
-        if ($page == 'master') {
-          // kelas
-          if ($act == 'kelas') {
-            include 'modul/master/kelas/data_kelas.php';
-          } elseif ($act == 'delkelas') {
-            include 'modul/master/kelas/del.php';
-            // semster
-          } elseif ($act == 'semester') {
-            include 'modul/master/semester/data.php';
-          } elseif ($act == 'delsemester') {
-            include 'modul/master/semester/del.php';
-          } elseif ($act == 'set_semester') {
-            include 'modul/master/semester/set.php';
-          }
-          // tahun ajaran
-          elseif ($act == 'ta') {
-            include 'modul/master/ta/data.php';
-          } elseif ($act == 'delta') {
-            include 'modul/master/ta/del.php';
-          } elseif ($act == 'set_ta') {
-            include 'modul/master/ta/set.php';
-            // mapel
-          } elseif ($act == 'mapel') {
-            include 'modul/master/mapel/data.php';
-          } elseif ($act == 'delmapel') {
-            include 'modul/master/mapel/del.php';
-          }
-        } elseif ($page == 'walas') {
+        if ($page == 'stok') {
           if ($act == '') {
-            include 'modul/wakel/data.php';
-          }
-        } elseif ($page == 'kepsek') {
-          if ($act == '') {
-            include 'modul/kepsek/data.php';
+            include 'modul/stok/data.php';
           } elseif ($act == 'add') {
-            include 'modul/kepsek/add.php';
+            include 'modul/stok/add.php';
           } elseif ($act == 'edit') {
-            include 'modul/kepsek/edit.php';
+            include 'modul/stok/edit.php';
           } elseif ($act == 'del') {
-            include 'modul/kepsek/del.php';
+            include 'modul/stok/del.php';
           } elseif ($act == 'proses') {
-            include 'modul/kepsek/proses.php';
+            include 'modul/stok/proses.php';
           }
         } elseif ($page == 'barang') {
           if ($act == '') {
@@ -304,6 +273,30 @@ $data = mysqli_fetch_array($sql);
           } elseif ($act == 'proses') {
             include 'modul/barang/proses.php';
           }
+        } elseif ($page == 'masuk-barang') {
+          if ($act == '') {
+            include 'modul/masuk-barang/data.php';
+          } elseif ($act == 'add') {
+            include 'modul/masuk-barang/add.php';
+          } elseif ($act == 'edit') {
+            include 'modul/masuk-barang/edit.php';
+          } elseif ($act == 'del') {
+            include 'modul/masuk-barang/del.php';
+          } elseif ($act == 'proses') {
+            include 'modul/masuk-barang/proses.php';
+          }
+        } elseif ($page == 'keluar-barang') {
+          if ($act == '') {
+            include 'modul/keluar-barang/data.php';
+          } elseif ($act == 'add') {
+            include 'modul/keluar-barang/add.php';
+          } elseif ($act == 'edit') {
+            include 'modul/keluar-barang/edit.php';
+          } elseif ($act == 'del') {
+            include 'modul/keluar-barang/del.php';
+          } elseif ($act == 'proses') {
+            include 'modul/keluar-barang/proses.php';
+          }
         } elseif ($page == 'kelola-user') {
           if ($act == '') {
             include 'modul/kelola-user/data.php';
@@ -315,20 +308,6 @@ $data = mysqli_fetch_array($sql);
             include 'modul/kelola-user/del.php';
           } elseif ($act == 'proses') {
             include 'modul/kelola-user/proses.php';
-          }
-        } elseif ($page == 'rekap') {
-          if ($act == '') {
-            include 'modul/rekap/rekap_absen.php';
-          } elseif ($act = 'rekap-perbulan') {
-            include 'modul/rekap/rekap_perbulan.php';
-          }
-        } elseif ($page == 'jadwal') {
-          if ($act == '') {
-            include 'modul/jadwal/data_mengajar.php';
-          } elseif ($act == 'add') {
-            include 'modul/jadwal/tambah.php';
-          } elseif ($act == 'cancel') {
-            include 'modul/jadwal/cancel.php';
           }
         } elseif ($page == '') {
           include 'modul/home.php';
@@ -451,20 +430,14 @@ $data = mysqli_fetch_array($sql);
       </div>
       <!-- end modal pengaturan akun -->
 
-
-
-
-
-
       <footer class="footer">
         <div class="container">
           <div class="copyright ml-auto">
-            &copy; <?php echo date('Y'); ?> Absensi Siswa SMP AL-Barakoh (<a href="index.php">SMP AL-Barokah </a> | 2021)
+            &copy; <?php echo date('Y'); ?> Inventory (<a href="index.php">UPK Afif </a> | 2022)
           </div>
         </div>
       </footer>
     </div>
-
 
   </div>
   <!--   Core JS Files   -->
