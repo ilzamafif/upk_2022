@@ -65,7 +65,7 @@ $data = mysqli_fetch_array($sql);
       <!-- Logo Header -->
       <div class="logo-header" data-background-color="blue">
 
-        <a href="dashboard.php" class="logo">
+        <a href="index.php" class="logo">
           <!-- <img src="../assets/img/mts.png" alt="navbar brand" class="navbar-brand" width="40"> -->
           <b class="text-white">UPK 2022 Afif</b>
         </a>
@@ -181,7 +181,7 @@ $data = mysqli_fetch_array($sql);
           </div>
           <ul class="nav nav-primary">
             <li class="nav-item active">
-              <a href="dashboard.php" class="collapsed">
+              <a href="index.php" class="collapsed">
                 <i class="fas fa-home"></i>
                 <p>Dashboard</p>
               </a>
@@ -350,20 +350,22 @@ $data = mysqli_fetch_array($sql);
             <?php
             if (isset($_POST['changePassword'])) {
               $passLama = $data['password'];
-              $pass = sha1($_POST['pass']);
-              $newPass = sha1($_POST['pass1']);
+              $pass = $_POST['pass'];
+              $newPass = $_POST['pass1'];
 
               if ($passLama == $pass) {
-                $set = mysqli_query($con, "UPDATE tb_admin SET password='$newPass' WHERE id_admin='$data[id_admin]' ");
+                $set = mysqli_query($con, "UPDATE user SET password='$newPass' WHERE id='$data[id]' ");
+                var_dump($set);
+                die();
                 echo "<script type='text/javascript'>
-				alert('Password Telah berubah')
-				window.location.replace('dashboard.php'); 
-				</script>";
+                alert('Password Telah berubah')
+                window.location.replace('index.php'); 
+                </script>";
               } else {
                 echo "<script type='text/javascript'>
-				alert('Password Lama Tidak cocok')
-				window.location.replace('dashboard.php'); 
-				</script>";
+                    alert('Password Lama Tidak cocok')
+                    window.location.replace('index.php'); 
+                    </script>";
               }
             }
             ?>
@@ -385,20 +387,9 @@ $data = mysqli_fetch_array($sql);
             <form action="" method="post" enctype="multipart/form-data">
               <div class="modal-body">
                 <div class="form-group">
-                  <label>Nama Lengkap</label>
-                  <input type="text" name="nama" class="form-control" value="<?= $data['nama_lengkap'] ?>">
-                  <input type="hidden" name="id" value="<?= $data['id_admin'] ?>">
-                </div>
-                <div class="form-group">
-                  <label>Email</label>
-                  <input type="text" name="username" class="form-control" value="<?= $data['username'] ?>">
-                </div>
-                <div class="form-group">
-                  <label>Foto Profile</label>
-                  <p>
-                    <img src="../assets/img/user/<?= $data['foto'] ?>" class="img-thumbnail" style="height: 50px;width: 50px;">
-                  </p>
-                  <input type="file" name="foto">
+                  <label>Username</label>
+                  <input type="text" name="nama" class="form-control" value="<?= $data['username'] ?>">
+                  <input type="hidden" name="id" value="<?= $data['id'] ?>">
                 </div>
               </div>
               <div class="modal-footer">
@@ -415,7 +406,7 @@ $data = mysqli_fetch_array($sql);
                 $ganti = mysqli_query($con, "UPDATE tb_admin SET foto='$gambar' WHERE id_admin='$_POST[id]' ");
               }
 
-              $sqlEdit = mysqli_query($con, "UPDATE tb_admin SET nama_lengkap='$_POST[nama]',username='$_POST[username]' WHERE id_admin='$_POST[id]' ") or die(mysqli_error($konek));
+              $sqlEdit = mysqli_query($con, "UPDATE user SET username='$_POST[nama] WHERE id='$_POST[id]' ") or die(mysqli_error($konek));
 
               if ($sqlEdit) {
                 echo "<script>

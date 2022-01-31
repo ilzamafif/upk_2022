@@ -42,29 +42,8 @@
 
 								<div class="form-group">
 									<label>KD Barang</label>
-									<!-- <span class="text-danger"><em>Email digunakan unruk Password default</em></span> -->
 									<input name="kd_barang" type="text" class="form-control" value="<?= $d['kd_barang'] ?>">
 								</div>
-								<!-- 
-							<div class="form-group">
-								<label>Pangkat</label>
-								<input name="pangkat" type="text" class="form-control" value="<?= $d['pangkat'] ?>">
-							</div>
-
-							<div class="form-group">
-								<label>Golongan</label>
-								<input name="golongan" type="text" class="form-control" value="<?= $d['golongan'] ?>">
-							</div> -->
-
-
-
-								<!-- <div class="form-group">
-									<p>
-										<img src="../assets/img/user/<?= $d['foto']; ?>" class="img-fluid rounded-circle kotak" style="height: 65px; width: 65px;">
-									</p>
-									<label>Foto</label>
-									<input type="file" name="foto">
-								</div> -->
 
 
 								<div class="form-group">

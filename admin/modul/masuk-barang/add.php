@@ -1,6 +1,6 @@
 <div class="page-inner">
   <div class="page-header">
-    <h4 class="page-title">Barang</h4>
+    <h4 class="page-title">Barang Masuk</h4>
     <ul class="breadcrumbs">
       <li class="nav-home">
         <a href="#">
@@ -11,13 +11,13 @@
         <i class="flaticon-right-arrow"></i>
       </li>
       <li class="nav-item">
-        <a href="#">Data Barang</a>
+        <a href="#">Data Barang Masuk</a>
       </li>
       <li class="separator">
         <i class="flaticon-right-arrow"></i>
       </li>
       <li class="nav-item">
-        <a href="#">Tambah Barang</a>
+        <a href="#">Tambah Barang Masuk</a>
       </li>
     </ul>
   </div>
@@ -26,10 +26,20 @@
     <div class="col-lg-8">
       <div class="card">
         <div class="card-header d-flex align-items-center">
-          <h3 class="h4">Form Entry Barang</h3>
+          <h3 class="h4">Form Entry Barang Masuk</h3>
         </div>
         <div class="card-body">
-          <form action="?page=barang&act=proses" method="post" enctype="multipart/form-data">
+          <form action="?page=masuk-barang&act=proses" method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+              <label>Kode Barang Masuk</label>
+              <input name="kd_barang_masuk" type="text" class="form-control" placeholder="Kode Barang Masuk">
+            </div>
+
+            <div class="form-group">
+              <label>Kode Barang</label>
+              <input name="kd_barang" type="text" class="form-control" placeholder="Kode Barang">
+            </div>
 
             <div class="form-group">
               <label>Nama Barang</label>
@@ -37,9 +47,20 @@
             </div>
 
             <div class="form-group">
-              <label>KD Barang</label>
-              <input name="kd_barang" type="text" class="form-control" placeholder="KD Barang">
+              <label>Tanggal Masuk</label>
+              <input name="tgl_masuk" type="date" class="form-control" placeholder="">
             </div>
+
+            <div class="form-group">
+              <label>Jumlah Masuk</label>
+              <input name="jumlah_masuk_barang" type="text" class="form-control" placeholder="Jumlah Masuk">
+            </div>
+
+            <div class="form-group">
+              <label>Kondisi Barang</label>
+              <input name="kondisi" type="text" class="form-control" placeholder="KD Barang">
+            </div>
+
             <div class="form-group">
               <button name="saveBarang" type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
               <a href="javascript:history.back()" class="btn btn-warning"><i class="fa fa-chevron-left"></i> Batal</a>

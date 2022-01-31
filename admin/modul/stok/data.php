@@ -1,6 +1,6 @@
 <div class="page-inner">
   <div class="page-header">
-    <h4 class="page-title">Kelola Stok</h4>
+    <h4 class="page-title">Stok</h4>
     <ul class="breadcrumbs">
       <li class="nav-home">
         <a href="#">
@@ -11,13 +11,13 @@
         <i class="flaticon-right-arrow"></i>
       </li>
       <li class="nav-item">
-        <a href="#">Data Kelola Stok</a>
+        <a href="#">Data Stok</a>
       </li>
       <li class="separator">
         <i class="flaticon-right-arrow"></i>
       </li>
       <li class="nav-item">
-        <a href="#">Daftar Kelola Stok</a>
+        <a href="#">Daftar Stok</a>
       </li>
     </ul>
   </div>
@@ -26,7 +26,7 @@
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <a href="?page=kelola-stok&act=add" class="btn btn-primary btn-sm text-white"><i class="fa fa-plus"></i> Tambah</a>
+            <a href="?page=kelola-stok&act=add" class="btn btn-primary btn-sm text-white"><i class="fa fa-plus"></i> Cetak</a>
           </div>
         </div>
         <div class="card-body">
@@ -36,21 +36,13 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Stokname</th>
-                  <th>Password</th>
-                  <th>Level</th>
-                  <th>Opsi</th>
+                  <th>Kode Barang</th>
+                  <th>Nama Barang</th>
+                  <th>Jumlah masuk Barang</th>
+                  <th>Jumlah Keluar Barang</th>
+                  <th>Total</th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                  <th>#</th>
-                  <th>Stokname</th>
-                  <th>Password</th>
-                  <th>Level</th>
-                  <th>Opsi</th>
-                </tr>
-              </tfoot>
               <tbody>
                 <?php
                 $no = 1;
@@ -59,15 +51,11 @@
                   <tr>
                     <td><?= $no++; ?>.</td>
 
-                    <td><?= $g['kode_barang']; ?></td>
-                    <td><?= $g['password']; ?></td>
-                    <td><?= $g['level']; ?></td>
-                    <td>
-                      <a class="btn btn-info btn-sm" href="?page=kelola-stok&act=edit&id=<?= $g['stokname'] ?>"><i class="far fa-edit"></i></a>
-                      <a class="btn btn-danger btn-sm" onclick="return confirm('Yakin Hapus Data ??')" href="?page=kelola-stok&act=del&stokname=<?= $g['stokname'] ?>"><i class="fas fa-trash"></i>
-                      </a>
-
-                    </td>
+                    <td><?= $g['nama_barang']; ?></td>
+                    <td><?= $g['kd_barang']; ?></td>
+                    <td><?= $g['jumlah_masuk_barang']; ?></td>
+                    <td><?= $g['jumlah_keluar_barang']; ?></td>
+                    <td><?= $g['total_barang']; ?></td>
                   </tr>
                 <?php } ?>
               </tbody>
