@@ -42,15 +42,6 @@
                   <th>Opsi</th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                  <th>#</th>
-                  <th>Username</th>
-                  <th>Password</th>
-                  <th>Level</th>
-                  <th>Opsi</th>
-                </tr>
-              </tfoot>
               <tbody>
                 <?php
                 $no = 1;

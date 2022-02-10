@@ -6,7 +6,7 @@ include 'config/db.php';
 <html lang="en">
 
 <head>
-  <title>Login </title>
+  <title>Login</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--===============================================================================================-->
@@ -40,10 +40,10 @@ include 'config/db.php';
       <div class="wrap-login100">
         <form method="post" action="" class="login100-form validate-form">
           <span class="login100-form-title p-b-48">
-            <!-- <img src="./assets/img/mts.png" width="75"> -->
+            <img src="./assets/img/carbon.png" width="75">
           </span>
           <span class="login100-form-title p-b-26">
-            UPK 2022
+            Inventory App
           </span>
 
           <div class="wrap-input100 validate-input">
@@ -59,11 +59,10 @@ include 'config/db.php';
             <span class="focus-input100" data-placeholder="Password"></span>
           </div>
           <div class="form-group mb-3">
-            <!-- <input class="input100" type="text" name="username">
-						<span class="focus-input100" data-placeholder="Username"></span> -->
             <select class="form-control" name="level">
               <option>Level</option>
               <option value="1">Admin</option>
+              <option value="2">Oprator</option>
             </select>
           </div>
           <br>
@@ -108,7 +107,7 @@ include 'config/db.php';
 
                   window.setTimeout(function(){ 
                     window.location.replace('./admin/');
-					      	} ,3000);   
+					      	} ,1000);   
 					    	</script>";
             } else {
               echo "
@@ -126,23 +125,23 @@ include 'config/db.php';
 
                 window.setTimeout(function(){ 
                   window.location.replace('./');
-                } ,3000);   
+                } ,1000);   
               </script>";
             }
           } elseif ($level == 2) {
-            // Siswa
+            // Oprator
             $sqlCek = mysqli_query($con, "SELECT * FROM user WHERE username='$_POST[username]' AND password='$pass'");
             $jml = mysqli_num_rows($sqlCek);
             $d = mysqli_fetch_array($sqlCek);
 
             if ($jml > 0) {
-              $_SESSION['siswa'] = $d['id_siswa'];
+              $_SESSION['bendahara'] = $d['id'];
 
               echo "
 								<script type='text/javascript'>
 								setTimeout(function () { 
 								
-								swal('($d[nama_siswa]) ', 'Login berhasil', {
+								swal('($d[username]) ', 'Login berhasil', {
 								icon : 'success',
 								buttons: {        			
 								confirm: {
@@ -152,8 +151,8 @@ include 'config/db.php';
 								});    
 								},10);  
 								window.setTimeout(function(){ 
-								window.location.replace('./siswa/');
-								} ,3000);   
+								window.location.replace('./bendahara/');
+								} ,1000);   
 								</script>";
             } else {
               echo "
@@ -171,7 +170,7 @@ include 'config/db.php';
 								},10);  
 								window.setTimeout(function(){ 
 								window.location.replace('./');
-								} ,3000);   
+								} ,1000);   
 								</script>";
             }
           } else {
