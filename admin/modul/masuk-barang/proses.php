@@ -1,8 +1,18 @@
 <?php
 
 if (isset($_POST['saveBarang'])) {
-
-	$save = mysqli_query($con, "INSERT INTO masuk_barang VALUES('$_POST[kd_masuk_barang]','$_POST[kd_barang]', '$_POST[nama_barang]','$_POST[tgl_masuk]','$_POST[jumlah_masuk_barang]','$_POST[kondisi]') ");
+	$nggolekkode = mysqli_query($con, "SELECT kd_masuk_barang from masuk_barang");
+	$datakode = mysqli_fetch_array($nggolekkode);
+	$jumlah_data = mysqli_num_rows($nggolekkode);
+	if ($datakode) {
+		$nilaikode = substr($jumlah_data[0], 1);
+		$kode = (int) $nilaikode;
+		$kode = $jumlah_data + 1;
+		$kd_masuk_barang = "MSK" . str_pad($kode, 4, "0", STR_PAD_LEFT);
+	} else {
+		$kd_masuk_barang = "MSK0001";
+	}
+	$save = mysqli_query($con, "INSERT INTO masuk_barang VALUES('$kd_masuk_barang','$_POST[kd_barang]', '$_POST[nama_barang]','$_POST[tgl_masuk]','$_POST[jumlah_masuk_barang]','$_POST[kondisi]') ");
 	if ($save) {
 		echo "
 				<script type='text/javascript'>

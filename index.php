@@ -85,7 +85,6 @@ include 'config/db.php';
           $pass = $_POST['password'];
           // $pass = sha1($_POST['password']);
           if ($level == 1) {
-            // Guru
             $sqlCek = mysqli_query($con, "SELECT * FROM user WHERE username='$_POST[username]' AND password='$pass'");
             $jml = mysqli_num_rows($sqlCek);
             $d = mysqli_fetch_array($sqlCek);

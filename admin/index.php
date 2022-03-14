@@ -85,14 +85,14 @@ $data = mysqli_fetch_array($sql);
             <li class="nav-item dropdown hidden-caret">
               <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                 <div class="avatar-sm">
-                  <img src="../assets/img/user/user.jpg" alt="..." class="avatar-img rounded-circle">
+                  <img src="../assets/img/user.png" alt="..." class="avatar-img rounded-circle">
                 </div>
               </a>
               <ul class="dropdown-menu dropdown-user animated fadeIn">
                 <div class="dropdown-user-scroll scrollbar-outer">
                   <li>
                     <div class="user-box">
-                      <div class="avatar-lg"><img src="../assets/img/user/user.jpg" alt="image profile" class="avatar-img rounded"></div>
+                      <div class="avatar-lg"><img src="../assets/img/user.png" alt="image profile" class="avatar-img rounded"></div>
                       <div class="u-text">
                         <h4><?= $data['username'] ?></h4>
                         <p class="text-muted"><?= $data['username'] ?></p>
@@ -123,7 +123,7 @@ $data = mysqli_fetch_array($sql);
         <div class="sidebar-content">
           <div class="user">
             <div class="avatar-sm float-left mr-2">
-              <img src="../assets/img/user/user.jpg" alt="..." class="avatar-img rounded-circle">
+              <img src="../assets/img/user.png" alt="..." class="avatar-img rounded-circle">
             </div>
             <div class="info">
               <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
@@ -246,6 +246,8 @@ $data = mysqli_fetch_array($sql);
             include 'modul/barang/del.php';
           } elseif ($act == 'proses') {
             include 'modul/barang/proses.php';
+          } elseif ($act == 'cetakPdf') {
+            include 'modul/barang/cetak.php';
           }
         } elseif ($page == 'masuk-barang') {
           if ($act == '') {

@@ -1,4 +1,16 @@
-<div class="page-inner">
+<?php
+$nggolekkode = mysqli_query($con, "SELECT kd_masuk_barang from masuk_barang");
+$datakode = mysqli_fetch_array($nggolekkode);
+$jumlah_data = mysqli_num_rows($nggolekkode);
+if ($datakode) {
+  $nilaikode = substr($jumlah_data[0], 1);
+  $kode = (int) $nilaikode;
+  $kode = $jumlah_data + 1;
+  $kd_masuk_barang = "MSK" . str_pad($kode, 4, "0", STR_PAD_LEFT);
+} else {
+  $kd_masuk_barang = "MSK0001";
+}
+?><div class="page-inner">
   <div class="page-header">
     <h4 class="page-title">Barang Masuk</h4>
     <ul class="breadcrumbs">
@@ -33,7 +45,7 @@
 
             <div class="form-group">
               <label>Kode Barang Masuk</label>
-              <input name="kd_barang_masuk" type="text" class="form-control" placeholder="Kode Barang Masuk">
+              <input name="kd_barang_masuk" type="text" class="form-control" value="<?= $kd_masuk_barang; ?>" disabled>
             </div>
 
             <div class="form-group">
