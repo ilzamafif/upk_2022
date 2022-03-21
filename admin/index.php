@@ -203,11 +203,6 @@ $data = mysqli_fetch_array($sql);
                 <p>Logout</p>
               </a>
             </li>
-
-            <!-- 
-						<li class="mx-4 mt-2">
-							<a href="logout.php" class="btn btn-primary btn-block"><span class="btn-label"> <i class="fas fa-arrow-alt-circle-left"></i> </span> Logout</a> 
-						</li> -->
           </ul>
         </div>
       </div>
