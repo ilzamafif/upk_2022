@@ -27,6 +27,7 @@
         <div class="card-header">
           <div class="card-title">
             <a href="?page=keluar-barang&act=add" class="btn btn-primary btn-sm text-white"><i class="fa fa-plus"></i> Cetak</a>
+            <a href="modul/cetakBarangKeluar.php" class="btn btn-primary btn-sm text-white">Cetak Dan Download</a>
           </div>
         </div>
         <div class="card-body">

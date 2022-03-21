@@ -5,7 +5,7 @@ include '../../config/db.php';
 <html>
 
 <head>
-  <title>Data Barang</title>
+  <title>Data User</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -18,27 +18,29 @@ include '../../config/db.php';
 
 <body>
   <div class="container">
-    <h2>Barang</h2>
+    <h2>User</h2>
     <div class="data-tables datatable-dark">
 
       <table id="mauexport" class="display table table-striped table-hover">
         <thead>
           <tr>
             <th>#</th>
-            <th>Kd Barang</th>
-            <th>Nama Barang</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Level</th>
           </tr>
         </thead>
         <tbody>
           <?php
           $no = 1;
-          $barang = mysqli_query($con, "SELECT * FROM barang");
-          foreach ($barang as $g) { ?>
+          $kelolauser = mysqli_query($con, "SELECT * FROM user");
+          foreach ($kelolauser as $g) { ?>
             <tr>
               <td><?= $no++; ?>.</td>
 
-              <td><?= $g['kd_barang']; ?></td>
-              <td><?= $g['nama_barang']; ?></td>
+              <td><?= $g['username']; ?></td>
+              <td><?= $g['password']; ?></td>
+              <td><?= $g['level']; ?></td>
             </tr>
           <?php } ?>
         </tbody>
