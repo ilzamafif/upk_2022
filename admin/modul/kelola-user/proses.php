@@ -39,7 +39,6 @@ if (isset($_POST['saveUser'])) {
 	// 	$ganti = mysqli_query($con, "UPDATE tb_barang SET foto='$gambar' WHERE id_barang='$_POST[id]' ");
 	// }
 	$sql = "UPDATE `user` SET username = '$_POST[username]',`password` = '$_POST[password]',`level` = '$_POST[level]' WHERE `user`.`username`='$_GET[id]' ";
-	var_dump($sql);
 	$editBarang = mysqli_query($con, $sql);
 
 	if ($editBarang) {

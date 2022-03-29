@@ -62,7 +62,7 @@ include 'config/db.php';
             <select class="form-control" name="level">
               <option>Level</option>
               <option value="1">Admin</option>
-              <option value="2">Oprator</option>
+              <!-- <option value="2">Oprator</option> -->
             </select>
           </div>
           <br>
