@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "upk_2022_il");
+$conn = mysqli_connect("localhost", "root", "", "upk_2022_ilz");
 
 $nggolekkode = mysqli_query($conn, "SELECT kd_barang from barang");
 $datakode = mysqli_fetch_array($nggolekkode);

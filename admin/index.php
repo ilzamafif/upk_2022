@@ -24,7 +24,7 @@ $data = mysqli_fetch_array($sql);
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Administrator </title>
+  <title>User</title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <link rel="icon" href="../assets/img/icon.ico" type="image/x-icon" />
 
@@ -129,7 +129,7 @@ $data = mysqli_fetch_array($sql);
               <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                 <span>
                   <?= $data['username'] ?>
-                  <span class="user-level">Administrator</span>
+                  <span class="user-level"></span>
                   <span class="caret"></span>
                 </span>
               </a>
@@ -326,8 +326,6 @@ $data = mysqli_fetch_array($sql);
 
               if ($passLama == $pass) {
                 $set = mysqli_query($con, "UPDATE user SET password='$newPass' WHERE id='$data[id]' ");
-                var_dump($set);
-                die();
                 echo "<script type='text/javascript'>
                 alert('Password Telah berubah')
                 window.location.replace('index.php'); 
@@ -359,7 +357,7 @@ $data = mysqli_fetch_array($sql);
               <div class="modal-body">
                 <div class="form-group">
                   <label>Username</label>
-                  <input type="text" name="nama" class="form-control" value="<?= $data['username'] ?>">
+                  <input type="text" name="username" class="form-control" value="<?= $data['username'] ?>">
                   <input type="hidden" name="id" value="<?= $data['id'] ?>">
                 </div>
               </div>
@@ -370,19 +368,12 @@ $data = mysqli_fetch_array($sql);
             </form>
             <?php
             if (isset($_POST['updateProfile'])) {
-
-              $gambar = @$_FILES['foto']['name'];
-              if (!empty($gambar)) {
-                move_uploaded_file($_FILES['foto']['tmp_name'], "../assets/img/user/$gambar");
-                $ganti = mysqli_query($con, "UPDATE tb_admin SET foto='$gambar' WHERE id_admin='$_POST[id]' ");
-              }
-
-              $sqlEdit = mysqli_query($con, "UPDATE user SET username='$_POST[nama] WHERE id='$_POST[id]' ") or die(mysqli_error($konek));
-
+              $sqlEdit = mysqli_query($con, "UPDATE user SET username='$_POST[username]' WHERE id='$data[id]' ");
+              
               if ($sqlEdit) {
                 echo "<script>
                         alert('Sukses ! Data berhasil diperbarui');
-                        window.location='dashboard.php';
+                        window.location='index.php';
                         </script>";
               }
             }

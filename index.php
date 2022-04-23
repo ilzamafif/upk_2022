@@ -62,7 +62,7 @@ include 'config/db.php';
             <select class="form-control" name="level">
               <option>Level</option>
               <option value="1">Admin</option>
-              <!-- <option value="2">Oprator</option> -->
+              <option value="2">Karyawan</option>
             </select>
           </div>
           <br>
@@ -85,7 +85,7 @@ include 'config/db.php';
           $pass = $_POST['password'];
           // $pass = sha1($_POST['password']);
           if ($level == 1) {
-            $sqlCek = mysqli_query($con, "SELECT * FROM user WHERE username='$_POST[username]' AND password='$pass'");
+            $sqlCek = mysqli_query($con, "SELECT * FROM user WHERE username='$_POST[username]' AND password='$pass' AND level='1' ");
             $jml = mysqli_num_rows($sqlCek);
             $d = mysqli_fetch_array($sqlCek);
 
@@ -129,12 +129,13 @@ include 'config/db.php';
             }
           } elseif ($level == 2) {
             // Oprator
-            $sqlCek = mysqli_query($con, "SELECT * FROM user WHERE username='$_POST[username]' AND password='$pass'");
+            $sqlCek = mysqli_query($con, "SELECT * FROM user WHERE username='$_POST[username]' AND password='$pass' AND level='2'");
+            
             $jml = mysqli_num_rows($sqlCek);
             $d = mysqli_fetch_array($sqlCek);
 
             if ($jml > 0) {
-              $_SESSION['bendahara'] = $d['id'];
+              $_SESSION['karyawan'] = $d['id'];
 
               echo "
 								<script type='text/javascript'>
@@ -150,7 +151,7 @@ include 'config/db.php';
 								});    
 								},10);  
 								window.setTimeout(function(){ 
-								window.location.replace('./bendahara/');
+								window.location.replace('./karyawan/');
 								} ,1000);   
 								</script>";
             } else {
@@ -173,7 +174,7 @@ include 'config/db.php';
 								</script>";
             }
           } else {
-            echo "Tidak ada level yg dipilih";
+            echo "Tidak ada level yg dipilih atau level salah";
           }
         }
         ?>
