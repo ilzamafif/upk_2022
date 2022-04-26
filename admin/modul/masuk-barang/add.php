@@ -48,14 +48,22 @@ if ($datakode) {
               <input name="kd_barang_masuk" type="text" class="form-control" value="<?= $kd_masuk_barang; ?>" disabled>
             </div>
 
-            <div class="form-group">
-              <label>Kode Barang</label>
-              <input required name="kd_barang" type="text" class="form-control" placeholder="Kode Barang">
+            <div class="form-group mb-3">
+              <label>Nama Barang</label>
+              <select class="form-control" name="kd_barang">
+                <?php $barang = mysqli_query($con, "SELECT * FROM barang"); foreach ($barang as $b) : ?>
+                  <option value="<?= $b['kd_barang']; ?>"><?= $b['kd_barang']; ?></option>
+                <?php endforeach; ?>
+              </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mb-3">
               <label>Nama Barang</label>
-              <input required name="nama_barang" type="text" class="form-control" placeholder="Nama Barang">
+              <select class="form-control" name="nama_barang">
+                <?php $barang = mysqli_query($con, "SELECT * FROM barang"); foreach ($barang as $b) : ?>
+                  <option value="<?= $b['kd_barang']; ?>"><?= $b['nama_barang']; ?></option>
+                <?php endforeach; ?>
+              </select>
             </div>
 
             <div class="form-group">
