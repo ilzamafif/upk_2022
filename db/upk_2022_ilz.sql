@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Apr 2022 pada 05.41
+-- Waktu pembuatan: 26 Apr 2022 pada 07.30
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -33,11 +33,14 @@ CREATE TABLE `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `barang`
+-- Trigger `barang`
 --
-
-INSERT INTO `barang` (`kd_barang`, `nama_barang`) VALUES
-('B0001', 'barang 1');
+DELIMITER $$
+CREATE TRIGGER `insertmulitple` AFTER INSERT ON `barang` FOR EACH ROW BEGIN 
+INSERT INTO stok(kd_barang) VALUES(new.kd_barang);
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -46,8 +49,8 @@ INSERT INTO `barang` (`kd_barang`, `nama_barang`) VALUES
 --
 
 CREATE TABLE `keluar_barang` (
-  `kd_keluar_barang` char(11) NOT NULL,
-  `kd_barang` char(11) NOT NULL,
+  `kd_keluar_barang` char(10) NOT NULL,
+  `kd_barang` char(10) NOT NULL,
   `nama_barang` varchar(50) NOT NULL,
   `tgl_keluar` date NOT NULL,
   `jumlah_keluar_barang` int(11) NOT NULL,
@@ -55,11 +58,19 @@ CREATE TABLE `keluar_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `keluar_barang`
+-- Trigger `keluar_barang`
 --
-
-INSERT INTO `keluar_barang` (`kd_keluar_barang`, `kd_barang`, `nama_barang`, `tgl_keluar`, `jumlah_keluar_barang`, `keperluan`) VALUES
-('KLR0001', 'B0001', 'barang 1', '2022-04-23', 70, 'Jual');
+DELIMITER $$
+CREATE TRIGGER `trigger_keluar_barang` AFTER INSERT ON `keluar_barang` FOR EACH ROW BEGIN
+UPDATE stok SET 
+nama_barang=new.nama_barang,
+jumlah_keluar_barang=jumlah_keluar_barang+new.jumlah_keluar_barang,
+total_barang=total_barang-new.jumlah_keluar_barang
+WHERE
+kd_barang=new.kd_barang;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -68,8 +79,8 @@ INSERT INTO `keluar_barang` (`kd_keluar_barang`, `kd_barang`, `nama_barang`, `tg
 --
 
 CREATE TABLE `masuk_barang` (
-  `kd_masuk_barang` char(11) NOT NULL,
-  `kd_barang` char(11) NOT NULL,
+  `kd_masuk_barang` char(10) NOT NULL,
+  `kd_barang` char(10) NOT NULL,
   `nama_barang` varchar(50) NOT NULL,
   `tgl_masuk` date NOT NULL,
   `jumlah_masuk_barang` int(11) NOT NULL,
@@ -77,11 +88,19 @@ CREATE TABLE `masuk_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `masuk_barang`
+-- Trigger `masuk_barang`
 --
-
-INSERT INTO `masuk_barang` (`kd_masuk_barang`, `kd_barang`, `nama_barang`, `tgl_masuk`, `jumlah_masuk_barang`, `kondisi`) VALUES
-('MSK0001', 'B0001', 'barang 1', '2022-04-23', 100, 'BARU');
+DELIMITER $$
+CREATE TRIGGER `trigger_masuk_barang` AFTER INSERT ON `masuk_barang` FOR EACH ROW BEGIN
+UPDATE stok SET
+nama_barang=new.nama_barang,
+jumlah_masuk_barang=jumlah_masuk_barang + new.jumlah_masuk_barang,
+total_barang=total_barang + new.jumlah_masUk_barang
+WHERE
+kd_barang=new.kd_barang;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -90,7 +109,7 @@ INSERT INTO `masuk_barang` (`kd_masuk_barang`, `kd_barang`, `nama_barang`, `tgl_
 --
 
 CREATE TABLE `stok` (
-  `kd_barang` int(11) NOT NULL,
+  `kd_barang` char(10) NOT NULL,
   `nama_barang` varchar(50) NOT NULL,
   `jumlah_masuk_barang` int(11) NOT NULL,
   `jumlah_keluar_barang` int(11) NOT NULL,
@@ -123,16 +142,30 @@ INSERT INTO `user` (`id`, `username`, `password`, `level`) VALUES
 --
 
 --
+-- Indeks untuk tabel `barang`
+--
+ALTER TABLE `barang`
+  ADD PRIMARY KEY (`kd_barang`);
+
+--
 -- Indeks untuk tabel `keluar_barang`
 --
 ALTER TABLE `keluar_barang`
-  ADD PRIMARY KEY (`kd_keluar_barang`);
+  ADD PRIMARY KEY (`kd_keluar_barang`),
+  ADD UNIQUE KEY `kd_barang` (`kd_barang`);
 
 --
 -- Indeks untuk tabel `masuk_barang`
 --
 ALTER TABLE `masuk_barang`
-  ADD PRIMARY KEY (`kd_masuk_barang`);
+  ADD PRIMARY KEY (`kd_masuk_barang`),
+  ADD UNIQUE KEY `kd_barang` (`kd_barang`);
+
+--
+-- Indeks untuk tabel `stok`
+--
+ALTER TABLE `stok`
+  ADD UNIQUE KEY `kd_barang` (`kd_barang`);
 
 --
 -- Indeks untuk tabel `user`
@@ -149,6 +182,28 @@ ALTER TABLE `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `keluar_barang`
+--
+ALTER TABLE `keluar_barang`
+  ADD CONSTRAINT `keluar_barang_ibfk_1` FOREIGN KEY (`kd_barang`) REFERENCES `barang` (`kd_barang`);
+
+--
+-- Ketidakleluasaan untuk tabel `masuk_barang`
+--
+ALTER TABLE `masuk_barang`
+  ADD CONSTRAINT `masuk_barang_ibfk_1` FOREIGN KEY (`kd_barang`) REFERENCES `barang` (`kd_barang`);
+
+--
+-- Ketidakleluasaan untuk tabel `stok`
+--
+ALTER TABLE `stok`
+  ADD CONSTRAINT `stok_ibfk_1` FOREIGN KEY (`kd_barang`) REFERENCES `barang` (`kd_barang`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
