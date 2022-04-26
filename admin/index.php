@@ -126,31 +126,12 @@ $data = mysqli_fetch_array($sql);
               <img src="../assets/img/user.png" alt="..." class="avatar-img rounded-circle">
             </div>
             <div class="info">
-              <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+              <a data-toggle="collapse" aria-expanded="true">
                 <span>
-                  <?= $data['username'] ?>
-                  <span class="user-level"></span>
-                  <span class="caret"></span>
+                  <span class="user-level"><?= $data['username'] ?></span>
                 </span>
               </a>
               <div class="clearfix"></div>
-
-              <div class="collapse in" id="collapseExample">
-                <ul class="nav">
-
-                  <li>
-                    <a href="#" data-toggle="modal" data-target="#pengaturanAkun" class="collapsed">
-                      <span class="link-collapse">Pengaturan Akun</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" data-toggle="modal" data-target="#gantiPassword" class="collapsed">
-                      <span class="link-collapse">Ganti Password</span>
-                    </a>
-                  </li>
-
-                </ul>
-              </div>
             </div>
           </div>
           <ul class="nav nav-primary">
