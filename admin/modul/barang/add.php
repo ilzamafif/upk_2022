@@ -53,7 +53,7 @@ if ($datakode) {
 
             <div class="form-group">
               <label>Nama Barang</label>
-              <input name="nama_barang" type="text" class="form-control" placeholder="Nama Barang">
+              <input name="nama_barang" required type="text" class="form-control" placeholder="Nama Barang">
             </div>
 
             <div class="form-group">

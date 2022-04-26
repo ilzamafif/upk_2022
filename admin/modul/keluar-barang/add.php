@@ -53,27 +53,27 @@ if ($datakode) {
 
             <div class="form-group">
               <label>Kode Barang</label>
-              <input name="kd_barang" type="text" class="form-control" placeholder="Kode Barang">
+              <input required name="kd_barang" type="text" class="form-control" placeholder="Kode Barang">
             </div>
 
             <div class="form-group">
               <label>Nama Barang</label>
-              <input name="nama_barang" type="text" class="form-control" placeholder="Nama Barang">
+              <input required name="nama_barang" type="text" class="form-control" placeholder="Nama Barang">
             </div>
 
             <div class="form-group">
               <label>Tanggal Keluar</label>
-              <input name="tgl_keluar" type="date" class="form-control" placeholder="">
+              <input required name="tgl_keluar" type="date" class="form-control" placeholder="">
             </div>
 
             <div class="form-group">
               <label>Jumlah Keluar</label>
-              <input name="jumlah_keluar_barang" type="text" class="form-control" placeholder="Jumlah Keluar">
+              <input required name="jumlah_keluar_barang" type="text" class="form-control" placeholder="Jumlah Keluar">
             </div>
 
             <div class="form-group">
               <label>Keperluan Barang</label>
-              <input name="keperluan" type="text" class="form-control" placeholder="Keperluan">
+              <input required name="keperluan" type="text" class="form-control" placeholder="Keperluan">
             </div>
 
             <div class="form-group">

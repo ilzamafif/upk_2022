@@ -33,18 +33,18 @@
 
             <div class="form-group">
               <label>Username</label>
-              <input name="username" type="text" class="form-control" placeholder="Username">
+              <input name="username" required type="text" class="form-control" placeholder="Username">
             </div>
 
             <div class="form-group">
               <label>Password</label>
               <!-- <span class="text-danger"><em>Email digunakan unruk Password default</em></span> -->
-              <input name="password" type="text" class="form-control" placeholder="password">
+              <input name="password" required type="text" class="form-control" placeholder="password">
             </div>
 
             <div class="form-group">
               <label>Level</label>
-              <input name="level" type="text" class="form-control" placeholder="Level">
+              <input name="level" required type="text" class="form-control" placeholder="Level">
             </div>
 
             <!-- <div class="form-group">

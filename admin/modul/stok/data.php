@@ -51,8 +51,8 @@
                   <tr>
                     <td><?= $no++; ?>.</td>
 
-                    <td><?= $g['nama_barang']; ?></td>
                     <td><?= $g['kd_barang']; ?></td>
+                    <td><?= $g['nama_barang']; ?></td>
                     <td><?= $g['jumlah_masuk_barang']; ?></td>
                     <td><?= $g['jumlah_keluar_barang']; ?></td>
                     <td><?= $g['total_barang']; ?></td>
