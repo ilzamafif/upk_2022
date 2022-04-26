@@ -171,12 +171,6 @@ $data = mysqli_fetch_array($sql);
                 <p>Stok</p>
               </a>
             </li>
-            <li class="nav-item mt-3">
-              <a href="?page=kelola-user" class="collapsed">
-                <i class="fas fa-users"></i>
-                <p>Kelola User</p>
-              </a>
-            </li>
 
             <li class="nav-item active mt-3">
               <a href="logout.php" class="collapsed">
@@ -248,18 +242,6 @@ $data = mysqli_fetch_array($sql);
             include 'modul/keluar-barang/del.php';
           } elseif ($act == 'proses') {
             include 'modul/keluar-barang/proses.php';
-          }
-        } elseif ($page == 'kelola-user') {
-          if ($act == '') {
-            include 'modul/kelola-user/data.php';
-          } elseif ($act == 'add') {
-            include 'modul/kelola-user/add.php';
-          } elseif ($act == 'edit') {
-            include 'modul/kelola-user/edit.php';
-          } elseif ($act == 'del') {
-            include 'modul/kelola-user/del.php';
-          } elseif ($act == 'proses') {
-            include 'modul/kelola-user/proses.php';
           }
         } elseif ($page == '') {
           include 'modul/home.php';
